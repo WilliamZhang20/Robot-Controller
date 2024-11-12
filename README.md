@@ -20,8 +20,6 @@ In the course correction, the robot takes an initial measurement of the gyroscop
 
 ## Further add-ons
 
-I added two features to the controller in addition to the raw PID for course correction. The first was anti-windup clamping to the integrator. This is to prevent the integrator from accumulating too much, which would cause the control plant to saturate. 
-
-The second addition was the use of a [feedforward](https://web.stanford.edu/class/archive/ee/ee392m/ee392m.1034/Lecture5_Feedfrwrd.pdf) adjustment that adds a multiple of the set point to the controller output, turning it into a _hybrid_ control system. Feedforward action enables correction to be taken earlier before disturbances arrive at the output. Overall, the effect was very noticeable and resulted in a very smooth correction, as seen in the video attached to the repository. 
+I added anti-windup limiting to the integrator. This was to prevent the integrator from accumulating too much, which would cause the control plant to saturate. 
 
 Finally, I used the ultrasonic sensor of the robot and added a layer of PID to control the speed output of the robot such that the setpoint of the distance in front of the robot is 10 centimetres. However, if the robot comes too close to an object, all previous control outputs are overridden and the robot stops itself.
